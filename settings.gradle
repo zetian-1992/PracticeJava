@@ -8,4 +8,5 @@
  */
 
 rootProject.name = 'PracticeJava'
-include('app')
+include('app', 'ConcurrencyPractice')
+

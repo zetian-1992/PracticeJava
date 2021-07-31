@@ -3,13 +3,35 @@
  */
 package PracticeJava;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+  
+        System.out.println(compareVersion("0.1", "1.1"));
+    }
 
+    public static int compareVersion(String version1, String version2) {
+        String[] v1 = version1.split("\\.");
+        String[] v2 = version2.split("\\.");
+        if(v1.length > v2.length) {
+            return compareVersion(version2, version1);
+        }
+        for(int i = 0; i < v1.length; i++) {
+            int value1 = (int)Integer.valueOf(v1[i]);
+            int value2 = (int)Integer.valueOf(v2[i]);                                        
+            if(value1 > value2) {
+                return 1;
+            } else if(value1 < value2) {
+                return - 1;
+            } 
+        }
+        return v1.length == v2.length ? 0 : -1;
     }
 }
